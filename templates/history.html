@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+History
+{% endblock %}
+{% block main %}
+<h2 class="mb-4">History</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">Transacted</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for stock in stocks %}
+    <tr>
+      <td>{{ stock.symbol }}</td>
+      {% if stock.reason == 'buy' %}
+      <td>{{ stock.shares }}</td>
+      {% else %}
+      <td>-{{ stock.shares }}</td>
+      {% endif %}
+      <td>{{ stock.price | usd }}</td>
+      <td>{{ stock.time_transacted }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<tbody>
+  <!-- TODO: For loop with transaction history -->
+</tbody>
+{% endblock %}

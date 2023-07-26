@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/change" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="oldPassword" placeholder="Old Password" type="password">
+        </div>
+        <div class="form-group">
+          <input class="form-control" name="newPassword" placeholder="New Password" type="password">
+        </div>
+        <button class="btn btn-primary mb-5" type="submit">Change Passwrod</button>
+    </form>
+{% endblock %}
